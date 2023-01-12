@@ -1,0 +1,45 @@
+<div class="favourites-container" *ngIf="favouritesData.length">
+    <div class="content-top">
+        <p class="message"><span>{{favouritesData.length }} {{favouritesData.length > 1 ? Cities : City}} </span>{{FavouriteMessage}}</p>  
+        <p class="remove-item" (click)="isDialogOpen=true">{{RemoveAllMessage}}</p>  
+    </div>
+   
+    <div class="favourites">
+        <div class="favourite-content"  *ngFor="let item of favouritesData ; let i = index">
+            <div class="first-group">
+                <p appHighlight class="place" (click)="getLocationDetails(item?.cityName)">{{item?.cityName}}, {{item?.countryName}}</p>
+                <img class="weather-icon" src=".\assets\images\{{item?.icon}}.png" alt="sunny icon">
+            </div>
+            <div class="second-group">
+                <p class="degrees">{{item?.temp}}</p>
+                <p class="unit">{{item?.unit}}</p> 
+                <p class="description">{{item?.description}}</p>            
+            </div>     
+            <div class="third-group" (click)="removeFavourite(item?.cityId)">
+                <img class="favourite-icon" src=".\assets\images\{{FavouriteIcon}}.png" alt="favourite icon"  type="button">
+            </div>     
+        </div>
+    </div>
+
+    <div class="full-page" *ngIf="isDialogOpen" (click)="isDialogOpen = false"></div>
+    <!-- remove all alert -->
+    <div  class="remove-all" *ngIf="isDialogOpen" (click)="isDialogOpen = false">      
+        <div class="card">
+            <p>{{FavouriteRemoveAlert}}</p>
+            <div class="buttons">
+                <button class="no-button" (click)="isDialogOpen = false">{{No}}</button>
+                <button class="yes-button" (click)="removeAll()">{{Yes}}</button>
+            </div>
+        </div>
+    </div>
+  
+</div>
+ 
+<!-- no content -->
+<div class="no-content-container">
+    <div class="no-content" *ngIf="!favouritesData.length">
+        <img  src=".\assets\images\icon_nothing.png" alt="logo"> 
+        <p class="no-results">{{NoFavouriteResults}}</p> 
+    </div>  
+</div>
+

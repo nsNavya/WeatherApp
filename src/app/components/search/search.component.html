@@ -1,0 +1,43 @@
+<div class="search-container" *ngIf="searchedData.length">
+   
+    <div class="content-top">
+        <p class="message">{{SearchMessage}}</p>  
+        <p class="remove-item" (click)="isDialogOpen=true">{{ClearAllMessage}}</p>  
+    </div>
+    
+    <div class="recents">
+        <div class="search-content"  *ngFor="let item of searchedData ; let i = index">
+            <div class="first-group">
+                <p appHighlight class="place" (click)="getLocationDetails(item?.cityName)">{{item?.cityName}}, {{item?.countryName}}</p>
+                <img class="weather-icon" src=".\assets\images\{{item?.icon}}.png" alt="sunny icon">
+            </div>
+            <div class="second-group">
+                <p class="degrees">{{item?.temp}}</p>
+                <p class="unit">{{item?.unit}}</p>   
+                <p class="description">{{item?.description}}</p>            
+            </div>     
+            <div class="third-group" (click)="toggleFavourites(item?.cityId , item?.isFav)">
+                <img class="favourite-icon" src=".\assets\images\{{getIcon(item?.isFav)}}.png" alt="favourite icon">
+            </div>     
+        </div>   
+    </div>
+
+    <div class="full-page" *ngIf="isDialogOpen" (click)="isDialogOpen = false"></div>
+      <!-- clear all alert -->
+      <div id="removeContents" class="remove-all" *ngIf="isDialogOpen" (click)="isDialogOpen = false">
+        <div class="card">
+            <p>{{SearchRemoveAlert}}</p>
+            <div class="buttons">
+                <button class="no-button" (click)="isDialogOpen = false">{{No}}</button>
+                <button class="yes-button" (click)="clearAll()">{{Yes}}</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="no-content-container">
+    <div class="no-content" *ngIf="!searchedData.length">
+        <img  src=".\assets\images\icon_nothing.png" alt="logo"> 
+        <p class="no-results">{{NoSearchResults}}</p>  
+    </div>  
+</div>

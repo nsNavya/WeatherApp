@@ -1,0 +1,179 @@
+@use '../../../assets/color';
+@use '../../../assets/variables';
+
+.home-container{
+    position: relative;
+    height: 100vh;
+    padding-top: 47px;
+    margin: 0px;
+}
+
+.home-location{
+    padding-left: 10px;
+    color: color.$text-color;
+    font-family: variables.$font-family;
+    font-weight: 500;
+    letter-spacing: 0;
+     
+    .location 
+    {
+        height: 24px;      
+        font-size: 20px;      
+        line-height: 24px;
+        text-align: left;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+    .favourite{
+        display: flex;
+        margin: 0px;
+        padding-top: 20px;
+    
+        .favourite-icon
+        {           
+            height: 17px;
+            width: 18px;
+            margin: 0px;
+            cursor: pointer;
+        }
+    
+        .favourite-text 
+        {
+            position:relative;
+            height: 15px;       
+            font-size: 13px;
+            line-height: 15px;
+            padding-left: 7px;
+            padding-top: 2px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    }    
+}
+
+
+.weather{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 26px;
+    text-align: center;
+    justify-content: center;   
+    color: color.$text-color;
+    font-family: variables.$font-family;
+    margin: 0px;
+    letter-spacing: 0;
+
+    .temperature{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-top: 15px;   
+         
+        .temperature-value{
+            height: 75px;  
+            font-size: 64px;
+            font-weight: 500;
+            line-height: 75px;  
+            margin-top: 0px;
+            margin-bottom: 0px; 
+        }   
+        .temperature-unit{
+            display: flex;
+            color: color.$text-color;
+            font-family: variables.$font-family;
+            justify-content: space-evenly;
+            height: 30px;
+            width: 55px;
+            font-size: 16px;
+            letter-spacing: 0;
+            padding-left: 6px;
+            line-height: 19px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            
+            p{
+                padding-top: 8px;
+                padding-left: 6px;
+                padding-bottom: 3px;
+                padding-right: 7px;
+                border: 1px solid color.$text-color;
+                cursor: pointer;
+            }
+            
+            .active {
+                background: color.$text-color;
+                color: color.$temperature-active;
+              }
+        }
+
+    }
+
+    .weather-text{
+        height: 25px;  
+        padding-top: 10px;     
+        font-size: 22px;     
+        line-height: 25px;  
+        margin-top: 0px;
+        margin-bottom: 0px;      
+    }
+}
+
+.more-details
+{
+    margin: 0px;
+    padding-top: 66px;
+
+    .weather-description{
+        border-top: 1px solid color.$background-search;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+       // flex-wrap: wrap;
+        justify-content: space-evenly;           
+        padding-top: 35px;
+
+        .contents
+        {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .measure
+            {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                color: color.$text-color;
+                font-family: variables.$font-family;
+                letter-spacing: 0;
+                padding-left: 14px;
+                                
+                .title{
+                    height: 18px;              
+                    font-size: 15px;              
+                    line-height: 18px;                   
+                }
+                    
+                .value{               
+                    height: 25px;            
+                    font-size: 22px;
+                    font-weight: 500;        
+                    line-height: 25px;   
+                    padding-top: 6px;                   
+                }              
+            }               
+                       
+        }
+    }  
+}
+    
+
+       
+    
+      
+
+  

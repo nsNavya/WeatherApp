@@ -1,0 +1,37 @@
+<div class="home-container">
+
+    <div class="home-location">
+        <p class="location">{{weatherData?.name}}, {{weatherData?.sys.country}}</p>
+        <div class="favourite" (click)="toggleFavourites()">
+            <img class="favourite-icon" src=".\assets\images\{{favouriteIcon}}.png" alt="favourite icon">
+         <p class="favourite-text">{{isFavourite ? Added : Add}} {{ToFavourite}}</p> 
+        </div>
+    </div> 
+
+    <div class="weather">                  
+        <img class="weather-icon" src=".\assets\images\{{weatherData?.weather[0].icon}}.png" alt="weather icon">
+        <div class="temperature">
+            <p class="temperature-value">{{changeTemparature(weatherData?.main.temp,unit)}}  </p> 
+            <div class="temperature-unit">
+                <p (click)="changeUnit(cel)" [class.active]="unit === cel">&#xb0;C</p>
+                <p (click)="changeUnit(fer)" [class.active]="unit === fer">&#xb0;F</p>
+            </div>
+        </div>     
+        <p class="weather-text">{{weatherData?.weather[0].description}}</p> 
+    </div> 
+      
+    <div class="more-details" >
+        <div class="weather-description" >
+            <div class="contents" *ngFor="let detail of weatherDetails">
+                <div class="weather-image" >
+                    <img class="indicator" src=".\assets\images\{{detail.imageSrc}}" alt="temperature">
+                </div>
+                <div class="measure" >
+                        <p class="title">{{detail.header}}</p>
+                        <p class="value">{{detail.header_val}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
